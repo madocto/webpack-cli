@@ -1,5 +1,6 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import APP from "./APP";
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
+import App from '@/pages/App'
+import './styles/normalize.less'
 
-ReactDOM.render(<APP />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById('root'))

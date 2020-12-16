@@ -1,0 +1,16 @@
+**/*.svg
+/dist
+package.json
+.dockerignore
+.DS_Store
+.eslintignore
+*.png
+.editorconfig
+.gitignore
+.prettierignore
+LICENSE
+*.lock
+yarn-error.log
+.history
+CNAME
+/build
