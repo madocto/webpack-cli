@@ -1,11 +1,11 @@
 import * as React from 'react'
-import Logo from '@/assets/logo.svg'
+import Icon from '@/components/Icon'
 import styles from './index.less'
 
 const App = () => {
   return (
     <div className={styles.wrap}>
-      <img src={Logo} alt="" />
+      <Icon name="logo" className={styles.logo} color="#fca300" />
     </div>
   )
 }

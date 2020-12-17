@@ -27,12 +27,16 @@ const config = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|svg|jpe?g)$/i,
+        test: /\.(png|jpe?g)$/i,
         loader: 'url-loader'
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         loader: 'file-loader'
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack', 'url-loader']
       }
     ]
   },
