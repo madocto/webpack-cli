@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import Icon from '@/components/Icon'
 import styles from './index.less'
 

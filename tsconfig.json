@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "jsx": "react",
     "module": "commonjs",
     "noImplicitAny": true,
@@ -19,6 +20,6 @@
   },
   "include": [
     "./src/**/*",
-    "type/typings.d.ts"
+    "./type/*"
   ]
 }
