@@ -5,14 +5,21 @@ const commonConfig = require('./webpack.common')
 
 /** @type {import('webpack').Configuration} */
 const config = {
+  mode: 'development',
   entry: path.resolve(__dirname, '../src/index.tsx'),
-  devtool: false,
-  plugins: [new HtmlWebpackPlugin()],
+  devtool: 'source-map',
+  target: 'web',
+  plugins: [
+    new HtmlWebpackPlugin({
+      inject: true
+    })
+  ],
   devServer: {
     host: '0.0.0.0',
     port: '8080',
-    overlay: true, // 把错误信息显示出来
-    quiet: false, // 输出没用的信息
+    hot: true,
+    overlay: true,
+    quiet: false,
     stats: 'none'
   }
 }
