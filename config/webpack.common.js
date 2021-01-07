@@ -1,7 +1,7 @@
 const path = require('path')
-const TerserPlugin = require('terser-webpack-plugin')
 const WebpackBar = require('webpackbar')
 
+/** @type {import('webpack').Configuration} */
 const config = {
   module: {
     rules: [
@@ -44,15 +44,7 @@ const config = {
     alias: {
       '@': path.resolve(__dirname, '../src')
     },
-    extensions: ['.js', '.ts', '.jsx', '.tsx', '.less', '.svg']
-  },
-  optimization: {
-    minimize: true,
-    minimizer: [
-      new TerserPlugin({
-        extractComments: false
-      })
-    ]
+    extensions: ['.js', '.ts', '.jsx', '.tsx', '.less']
   },
   performance: {
     hints: 'warning', // dev warning  prod error
@@ -62,15 +54,13 @@ const config = {
       // 提供资源文件名的断言函数
       return assetFilename.endsWith('.css') || assetFilename.endsWith('.js')
     }
-  }
+  },
+  plugins: [
+    new WebpackBar({
+      name: 'Webpack',
+      color: 'orange',
+      reporters: ['fancy']
+    })
+  ]
 }
-
-const plugins = [
-  new WebpackBar({
-    name: 'Webpack',
-    color: 'orange',
-    reporters: ['fancy']
-  })
-]
-
-module.exports = [config, plugins]
+module.exports = config

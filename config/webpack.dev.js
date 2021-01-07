@@ -1,20 +1,13 @@
 const path = require('path')
-const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const [config, plugins] = require('./webpack.common')
+const { merge } = require('webpack-merge')
+const commonConfig = require('./webpack.common')
 
-module.exports = {
-  ...config,
+/** @type {import('webpack').Configuration} */
+const config = {
   entry: path.resolve(__dirname, '../src/index.tsx'),
   devtool: false,
-  plugins: [
-    ...plugins,
-    new HtmlWebpackPlugin(),
-    new webpack.SourceMapDevToolPlugin({
-      module: true,
-      columns: true
-    })
-  ],
+  plugins: [new HtmlWebpackPlugin()],
   devServer: {
     host: '0.0.0.0',
     port: '8080',
@@ -23,3 +16,4 @@ module.exports = {
     stats: 'none'
   }
 }
+module.exports = merge(config, commonConfig)
