@@ -1,7 +1,7 @@
 import React from 'react'
 import ICONMAP from './iconMap'
 
-interface IconProps {
+type IconProps = {
   name: 'logo'
   className?: string
   size?: number

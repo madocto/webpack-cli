@@ -1,6 +1,6 @@
 import React from 'react'
-import Icon from '@/components/Icon'
 import styles from './index.less'
+import Icon from '@/components/Icon'
 
 const App = () => {
   return (
