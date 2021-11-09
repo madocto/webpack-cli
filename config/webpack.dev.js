@@ -1,5 +1,4 @@
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { merge } = require('webpack-merge')
 const commonConfig = require('./webpack.common')
 
@@ -9,18 +8,15 @@ const config = {
   entry: path.resolve(__dirname, '../src/index.tsx'),
   devtool: 'source-map',
   target: 'web',
-  plugins: [
-    new HtmlWebpackPlugin({
-      inject: true
-    })
-  ],
   devServer: {
     host: '0.0.0.0',
     port: '8080',
     hot: true,
-    overlay: true,
-    quiet: false,
-    stats: 'none'
+    client: {
+      overlay: true,
+      logging: 'none',
+      progress: true
+    }
   }
 }
 module.exports = merge(config, commonConfig)

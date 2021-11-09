@@ -1,5 +1,7 @@
 const path = require('path')
 const WebpackBar = require('webpackbar')
+const TerserPlugin = require('terser-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 /** @type {import('webpack').Configuration} */
 const config = {
@@ -46,21 +48,30 @@ const config = {
     },
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.less']
   },
-  performance: {
-    hints: 'warning', // dev warning  prod error
-    maxAssetSize: 30000000, // 单个资产大小（以字节为单位）
-    maxEntrypointSize: 50000000, // 最大入口点（以字节为单位）
-    assetFilter: function (assetFilename) {
-      // 提供资源文件名的断言函数
-      return assetFilename.endsWith('.css') || assetFilename.endsWith('.js')
-    }
-  },
   plugins: [
-    new WebpackBar({
-      name: 'Webpack',
-      color: 'orange',
-      reporters: ['fancy']
-    })
-  ]
+    new HtmlWebpackPlugin({
+      inject: true
+    }),
+    new WebpackBar()
+  ],
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          format: {
+            comments: false
+          }
+        },
+        extractComments: false
+      })
+    ]
+  },
+  stats: {
+    hash: false,
+    modules: false,
+    chunks: false,
+    colors: true
+  }
 }
 module.exports = config

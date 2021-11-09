@@ -1,5 +1,6 @@
 **/*.svg
 /dist
+/build
 package.json
 .dockerignore
 .DS_Store
@@ -13,4 +14,4 @@ LICENSE
 yarn-error.log
 .history
 CNAME
-/build
+pnpm-lock.yaml
