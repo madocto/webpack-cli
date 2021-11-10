@@ -20,10 +20,11 @@ const config = {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: 'iDD_[local]-[hash:base64:5]'
+                localIdentName: '[local]-[hash:base64:5]'
               }
             }
           },
+          'postcss-loader',
           'less-loader'
         ],
         exclude: /node_modules/

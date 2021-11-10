@@ -5,10 +5,11 @@
   "scripts": {
     "start": "webpack serve --config config/webpack.dev.js",
     "build": "webpack --config config/webpack.prod.js",
+    "lint": "yarn lint:fix && yarn lint:style",
     "lint:js": "eslint --ext .js,.jsx,.ts,.tsx ./",
     "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx ./ --fix",
     "lint:prettier": "prettier --check \"**/*\" --end-of-line auto",
-    "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
+    "lint:style": "stylelint --fix \"src/**/*.less\" ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -39,6 +40,8 @@
     "install": "^0.13.0",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
+    "postcss": "^8.3.11",
+    "postcss-loader": "^6.2.0",
     "prettier": "^2.4.1",
     "style-loader": "^3.3.1",
     "stylelint": "^14.0.1",

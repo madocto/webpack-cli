@@ -4,13 +4,22 @@ module.exports = {
     commonjs: true,
     es2021: true
   },
-  extends: ['plugin:react/recommended', 'standard'],
+  extends: [
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    'standard'
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true
     },
     ecmaVersion: 12
+  },
+  settings: {
+    react: {
+      version: 'detect'
+    }
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
@@ -29,10 +38,6 @@ module.exports = {
         ]
       }
     ],
-    'no-use-before-define': 0,
-    'react/self-closing-comp': 'error',
-    indent: ['off', 2],
-    '@typescript-eslint/no-use-before-define': 0,
-    '@typescript-eslint/indent': ['error', 2]
+    'react/self-closing-comp': 'error'
   }
 }
