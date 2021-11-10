@@ -1,9 +1,9 @@
-const path = require('path')
-const { merge } = require('webpack-merge')
-const commonConfig = require('./webpack.common')
+import path from 'path'
+import webpack from 'webpack'
+import { merge } from 'webpack-merge'
+import commonConfig from './webpack.common'
 
-/** @type {import('webpack').Configuration} */
-const config = {
+const config: webpack.Configuration = {
   mode: 'development',
   entry: path.resolve(__dirname, '../src/index.tsx'),
   devtool: 'source-map',
@@ -19,4 +19,5 @@ const config = {
     }
   }
 }
-module.exports = merge(config, commonConfig)
+
+export default merge(config, commonConfig)

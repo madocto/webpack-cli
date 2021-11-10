@@ -1,14 +1,14 @@
-const path = require('path')
-const WebpackBar = require('webpackbar')
-const TerserPlugin = require('terser-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+import path from 'path'
+import webpack from 'webpack'
+import WebpackBar from 'webpackbar'
+import TerserPlugin from 'terser-webpack-plugin'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 console.log('🍎🍎🍎', process.env.NODE_ENV)
 
-/** @type {import('webpack').Configuration} */
-const config = {
+const config: webpack.Configuration = {
   module: {
     rules: [
       {
@@ -81,4 +81,5 @@ const config = {
     colors: true
   }
 }
-module.exports = config
+
+export default config
