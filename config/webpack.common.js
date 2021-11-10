@@ -1,7 +1,11 @@
 const path = require('path')
 const WebpackBar = require('webpackbar')
 const TerserPlugin = require('terser-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+console.log('🍎🍎🍎', process.env.NODE_ENV)
 
 /** @type {import('webpack').Configuration} */
 const config = {
@@ -15,7 +19,7 @@ const config = {
       {
         test: /\.less$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -50,6 +54,7 @@ const config = {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.less']
   },
   plugins: [
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       inject: true
     }),
@@ -58,6 +63,7 @@ const config = {
   optimization: {
     minimize: true,
     minimizer: [
+      new CssMinimizerPlugin(),
       new TerserPlugin({
         terserOptions: {
           format: {
