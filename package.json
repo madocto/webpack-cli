@@ -1,5 +1,5 @@
 {
-  "name": "my-webpack",
+  "name": "webpack-template",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -13,7 +13,7 @@
     "lint:style": "stylelint --fix \"src/**/*.less\" ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "zhangyu",
   "license": "ISC",
   "dependencies": {
     "react": "^17.0.2",
@@ -49,6 +49,7 @@
     "postcss": "^8.3.11",
     "postcss-loader": "^6.2.0",
     "prettier": "^2.4.1",
+    "style-loader": "^3.3.1",
     "stylelint": "^14.0.1",
     "stylelint-config-css-modules": "^2.3.0",
     "stylelint-config-prettier": "^9.0.3",

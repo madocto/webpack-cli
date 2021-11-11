@@ -1,10 +1,10 @@
 import path from 'path'
 import webpack from 'webpack'
 import WebpackBar from 'webpackbar'
-import TerserPlugin from 'terser-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+
+const isDev = process.env.NODE_ENV !== 'production'
 
 console.log('🍎🍎🍎', process.env.NODE_ENV)
 
@@ -19,7 +19,7 @@ const config: webpack.Configuration = {
       {
         test: /\.less$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -54,26 +54,11 @@ const config: webpack.Configuration = {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.less']
   },
   plugins: [
-    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
-      inject: true
+      inject: 'body'
     }),
     new WebpackBar()
   ],
-  optimization: {
-    minimize: true,
-    minimizer: [
-      new CssMinimizerPlugin(),
-      new TerserPlugin({
-        terserOptions: {
-          format: {
-            comments: false
-          }
-        },
-        extractComments: false
-      })
-    ]
-  },
   stats: {
     hash: false,
     modules: false,
