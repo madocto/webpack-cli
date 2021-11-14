@@ -1,20 +1,21 @@
-import path from 'path'
-import webpack from 'webpack'
-import WebpackBar from 'webpackbar'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
+import path from 'path';
+import WebpackBar from 'webpackbar';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import type webpack from 'webpack';
 
-const isDev = process.env.NODE_ENV !== 'production'
+const isDev = process.env.NODE_ENV !== 'production';
 
-console.log('🍎🍎🍎', process.env.NODE_ENV)
+console.log('🍎🍎🍎', process.env.NODE_ENV);
 
 const config: webpack.Configuration = {
+  entry: path.resolve(__dirname, '../src/App.tsx'),
   module: {
     rules: [
       {
         test: /\.(ts|tsx)?$/,
         use: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.less$/,
@@ -24,47 +25,47 @@ const config: webpack.Configuration = {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: '[local]-[hash:base64:5]'
-              }
-            }
+                localIdentName: '[local]-[hash:base64:5]',
+              },
+            },
           },
           'postcss-loader',
-          'less-loader'
+          'less-loader',
         ],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.(png|jpe?g)$/i,
-        loader: 'url-loader'
+        loader: 'url-loader',
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        loader: 'file-loader'
+        loader: 'file-loader',
       },
       {
         test: /\.svg$/,
-        use: ['@svgr/webpack', 'url-loader']
-      }
-    ]
+        use: ['@svgr/webpack', 'url-loader'],
+      },
+    ],
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, '../src')
+      '@': path.resolve(__dirname, '../src'),
     },
-    extensions: ['.js', '.ts', '.jsx', '.tsx', '.less']
+    extensions: ['.js', '.ts', '.jsx', '.tsx', '.less'],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      inject: 'body'
+      inject: 'body',
     }),
-    new WebpackBar()
+    new WebpackBar(),
   ],
   stats: {
     hash: false,
     modules: false,
     chunks: false,
-    colors: true
-  }
-}
+    colors: true,
+  },
+};
 
-export default config
+export default config;

@@ -1,7 +1,7 @@
-import path from 'path'
-import webpack from 'webpack'
-import { merge } from 'webpack-merge'
-import commonConfig from './webpack.common'
+import path from 'path';
+import { merge } from 'webpack-merge';
+import commonConfig from './webpack.common';
+import type webpack from 'webpack';
 
 const config: webpack.Configuration = {
   mode: 'development',
@@ -15,9 +15,9 @@ const config: webpack.Configuration = {
     client: {
       overlay: true,
       logging: 'none',
-      progress: true
-    }
-  }
-}
+      progress: true,
+    },
+  },
+};
 
-export default merge(config, commonConfig)
+export default merge(config, commonConfig);
