@@ -1,5 +1,5 @@
-type iconMap = { [key: string]: any }
+import { ReactComponent as LOGO } from '@/assets/logo.svg';
 
 export default {
-  logo: require('@/assets/logo.svg').ReactComponent
-} as iconMap
+  logo: LOGO,
+};
