@@ -1,6 +1,7 @@
 **/*.svg
 /dist
 /build
+/src/index.ejs
 package.json
 .dockerignore
 .DS_Store

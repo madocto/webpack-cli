@@ -1,28 +1,19 @@
+// https://github.com/AlloyTeam/eslint-config-alloy
 module.exports = {
-  env: {
-    browser: true,
-    commonjs: true,
-    es2021: true
-  },
-  extends: [
-    'standard',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:react-hooks/recommended'
-  ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true
-    },
-    ecmaVersion: 12
-  },
   settings: {
     react: {
       version: 'detect'
     }
   },
-  plugins: ['react', '@typescript-eslint'],
+  extends: [
+    'alloy',
+    'alloy/react',
+    'alloy/typescript',
+    'plugin:react-hooks/recommended'
+  ],
+  plugins: ['import'],
+  env: {},
+  globals: {},
   rules: {
     'import/order': [
       'warn',
@@ -39,6 +30,12 @@ module.exports = {
         ]
       }
     ],
-    'react/self-closing-comp': 'error'
+    'react/self-closing-comp': 2,
+    'react/jsx-no-constructed-context-values': 0,
+    'react/no-namespace': 0,
+    'react/no-unstable-nested-components': 0,
+    'no-unused-vars': 2,
+    '@typescript-eslint/consistent-type-imports': 1,
+    '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 0
   }
 }
