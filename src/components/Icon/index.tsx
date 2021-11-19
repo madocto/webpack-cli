@@ -1,15 +1,15 @@
-import ICONMAP from './iconMap'
+import ICONMAP from './iconMap';
 
-type IconProps = {
-  name: 'logo'
-  className?: string
-  size?: number
-  color?: string
+interface IconProps {
+  name: 'logo';
+  className?: string;
+  size?: number;
+  color?: string;
 }
 
 const Icon = ({ className, name, size, color }: IconProps) => {
-  const IconComponent = ICONMAP[name]
-  return <IconComponent className={className} width={size} fill={color} />
-}
+  const IconComponent = ICONMAP[name];
+  return <IconComponent className={className} width={size} fill={color} />;
+};
 
-export default Icon
+export default Icon;

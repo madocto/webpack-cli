@@ -2,8 +2,8 @@
 module.exports = {
   settings: {
     react: {
-      version: 'detect'
-    }
+      version: 'detect',
+    },
   },
   extends: [
     'alloy',
@@ -15,20 +15,12 @@ module.exports = {
   env: {},
   globals: {},
   rules: {
+    // 自定义你的规则
     'import/order': [
       'warn',
       {
-        groups: [
-          'object',
-          'builtin',
-          'external',
-          'internal',
-          'parent',
-          'sibling',
-          'index',
-          'type'
-        ]
-      }
+        groups: ['object', 'builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'type'],
+      },
     ],
     'react/self-closing-comp': 2,
     'react/jsx-no-constructed-context-values': 0,

@@ -9,6 +9,7 @@ const isDev = process.env.NODE_ENV !== 'production';
 console.log('🍎🍎🍎', process.env.NODE_ENV);
 
 const config: webpack.Configuration = {
+  entry: path.resolve(__dirname, '../src/App.tsx'),
   module: {
     rules: [
       {

@@ -19,7 +19,6 @@ if (process.env.ANALYZE === '1') {
 
 const config: webpack.Configuration = {
   mode: 'production',
-  entry: path.resolve(__dirname, '../src/pages/App/index.tsx'),
   output: {
     filename: '[name].[contenthash:5].js',
     path: path.resolve(__dirname, '../dist'),
